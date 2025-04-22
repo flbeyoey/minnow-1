@@ -9,26 +9,25 @@ using namespace std;
 
 void get_URL( const string& host, const string& path )
 {
-  Address service_address(host, "http");
+  Address service_address( host, "http" );
   TCPSocket socket;
 
-  socket.connect(service_address);
-  string require_text = "GET " + path + " HTTP/1.1\r\n" +
-                        "Host: " + host + "\r\n" +
-                        "Connection: close\r\n" + "\r\n";
-  
-  socket.write(require_text);
-  socket.shutdown(SHUT_WR);
+  socket.connect( service_address );
+  string require_text
+    = "GET " + path + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n" + "\r\n";
+
+  socket.write( require_text );
+  socket.shutdown( SHUT_WR );
   string response = "";
-  while (!socket.eof()) {
+  while ( !socket.eof() ) {
     string buffer = "";
-    socket.read(buffer);
+    socket.read( buffer );
     response += buffer;
   }
 
-  size_t pos = response.find("\n\n");
-  if(pos != string::npos){
-    response = response.substr(pos + 2);
+  size_t pos = response.find( "\n\n" );
+  if ( pos != string::npos ) {
+    response = response.substr( pos + 2 );
   }
 
   cout << response;

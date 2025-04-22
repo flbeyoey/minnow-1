@@ -12,21 +12,10 @@ public:
 
 int main(){
 
-    foo a(10);
 
-    foo b = move(a);
-
-    cout << a.num << b.num << endl;
-
-    vector<int>&& x = vector{1, 2, 3};
-    for(auto it : x){
-        cout << it << endl;
-    }
-
-    x.push_back(4);
-     for(auto it : x){
-        cout << it << endl;
-    }   
-
+    string a = "0123456";
+    string b = "7891011";
+    a.append(b, 3);
+    cout << a << endl;
     return 0;
 }
