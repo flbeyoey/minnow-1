@@ -16,8 +16,7 @@ void Reassembler::insert( uint64_t first_index, string data, bool is_last_substr
     return;
   }
 
-  if ( seg_st_pos < next_expected_seq_ )
-    seg_st_pos = next_expected_seq_;
+  seg_st_pos = max( seg_st_pos, next_expected_seq_ );
 
   if ( seg_end_pos > next_expected_seq_ + available_capacity() - 1 )
     data = data.substr( seg_st_pos - first_index, next_expected_seq_ + available_capacity() - seg_st_pos );
