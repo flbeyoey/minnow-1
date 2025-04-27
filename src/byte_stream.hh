@@ -25,7 +25,7 @@ protected:
   // Please add any additional state to the ByteStream here, and not to the Writer and Reader interfaces.
   uint64_t capacity_;
   bool error_ {};
-  std::string stream_pool_ = ""; 
+  std::string stream_pool_ = "";
   bool closed_ = false;
   uint64_t used_capacity_ = 0, total_popped_ = 0, total_pushed_ = 0;
 };

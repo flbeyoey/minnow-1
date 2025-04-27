@@ -1,2 +1,2 @@
-cmake --build build
-./build/apps/webget www.baidu.com /
+cmake --build build --target format
+cmake --build build --target check1
