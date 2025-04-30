@@ -27,4 +27,7 @@ public:
 
 private:
   Reassembler reassembler_;
+  Wrap32 ISN { 0u };
+  std::optional<Wrap32> ackno_ { std::nullopt }, finno_ { std::nullopt };
+  // nullopt is the null value for the optional
 };
